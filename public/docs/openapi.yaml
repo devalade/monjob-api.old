@@ -19,26 +19,43 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
-                name:
+                first_name:
                   type: string
-                  description: 'Must not be greater than 255 characters.'
-                  example: flxdxtboet
+                  description: ''
+                  example: enim
+                last_name:
+                  type: string
+                  description: ''
+                  example: quis
+                gender:
+                  type: string
+                  description: 'Must be one of <code>m</code> or <code>f</code>.'
+                  example: m
+                birth_date:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-07-26T13:26:51'
+                avatar:
+                  type: string
+                  format: binary
+                  description: 'Must be an image.'
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: umueller@example.net
+                  example: andrew.marks@example.net
                 password:
                   type: string
-                  description: 'Must be at least 6 characters.'
-                  example: 'l+&WZ]1{IWb17=UCy"Z'
+                  description: 'Must be at least 8 characters.'
+                  example: sH!Rjm<
               required:
-                - name
+                - first_name
+                - last_name
+                - gender
                 - email
-                - password
       security: []
   /api/auth/login:
     post:
@@ -59,11 +76,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: merlin.beahan@example.com
+                  example: matilde.krajcik@example.org
                 password:
                   type: string
                   description: ''
-                  example: quidem
+                  example: molestiae
               required:
                 - email
                 - password
@@ -75,6 +92,28 @@ paths:
       description: ''
       parameters: []
       responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/auth/me:
+    get:
+      summary: ''
+      operationId: getApiAuthMe
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
       tags:
         - Endpoints
       security: []
@@ -97,7 +136,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: margie12@example.com
+                  example: lwalsh@example.org
               required:
                 - email
       security: []
@@ -120,21 +159,42 @@ paths:
                 token:
                   type: string
                   description: ''
-                  example: natus
+                  example: hic
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: rau.chris@example.org
+                  example: goldner.kamren@example.com
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: i<aK37X)ENLntIw(\)9h
+                  example: 'IRHdPJ7>*i6YS~P=Y2p'
               required:
                 - token
                 - email
                 - password
       security: []
   /api/companies:
+    get:
+      summary: ''
+      operationId: getApiCompanies
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
     post:
       summary: ''
       operationId: postApiCompanies
@@ -145,6 +205,27 @@ paths:
         - Endpoints
       security: []
   '/api/companies/{id}':
+    get:
+      summary: ''
+      operationId: getApiCompaniesId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
     put:
       summary: ''
       operationId: putApiCompaniesId
@@ -168,7 +249,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the company.'
-        example: voluptatem
+        example: molestiae
         required: true
         schema:
           type: string

@@ -15,39 +15,71 @@ endpoints:
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
+      first_name:
+        name: first_name
+        description: ''
         required: true
-        example: flxdxtboet
+        example: enim
         type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: ''
+        required: true
+        example: quis
+        type: string
+        custom: []
+      gender:
+        name: gender
+        description: 'Must be one of <code>m</code> or <code>f</code>.'
+        required: true
+        example: m
+        type: string
+        custom: []
+      birth_date:
+        name: birth_date
+        description: 'Must be a valid date.'
+        required: false
+        example: '2023-07-26T13:26:51'
+        type: string
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: umueller@example.net
+        example: andrew.marks@example.net
         type: string
         custom: []
       password:
         name: password
-        description: 'Must be at least 6 characters.'
-        required: true
-        example: 'l+&WZ]1{IWb17=UCy"Z'
+        description: 'Must be at least 8 characters.'
+        required: false
+        example: sH!Rjm<
         type: string
         custom: []
     cleanBodyParameters:
-      name: flxdxtboet
-      email: umueller@example.net
-      password: 'l+&WZ]1{IWb17=UCy"Z'
-    fileParameters: []
+      first_name: enim
+      last_name: quis
+      gender: m
+      birth_date: '2023-07-26T13:26:51'
+      email: andrew.marks@example.net
+      password: sH!Rjm<
+    fileParameters:
+      avatar: null
     responses: []
     responseFields: []
     auth: []
@@ -80,19 +112,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: merlin.beahan@example.com
+        example: matilde.krajcik@example.org
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: quidem
+        example: molestiae
         type: string
         custom: []
     cleanBodyParameters:
-      email: merlin.beahan@example.com
-      password: quidem
+      email: matilde.krajcik@example.org
+      password: molestiae
     fileParameters: []
     responses: []
     responseFields: []
@@ -133,6 +165,45 @@ endpoints:
     custom: []
   -
     httpMethods:
+      - GET
+    uri: api/auth/me
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
     uri: api/auth/password/email
     metadata:
@@ -156,11 +227,11 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: margie12@example.com
+        example: lwalsh@example.org
         type: string
         custom: []
     cleanBodyParameters:
-      email: margie12@example.com
+      email: lwalsh@example.org
     fileParameters: []
     responses: []
     responseFields: []
@@ -194,29 +265,68 @@ endpoints:
         name: token
         description: ''
         required: true
-        example: natus
+        example: hic
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: rau.chris@example.org
+        example: goldner.kamren@example.com
         type: string
         custom: []
       password:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: i<aK37X)ENLntIw(\)9h
+        example: 'IRHdPJ7>*i6YS~P=Y2p'
         type: string
         custom: []
     cleanBodyParameters:
-      token: natus
-      email: rau.chris@example.org
-      password: i<aK37X)ENLntIw(\)9h
+      token: hic
+      email: goldner.kamren@example.com
+      password: 'IRHdPJ7>*i6YS~P=Y2p'
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/companies
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -255,6 +365,53 @@ endpoints:
     custom: []
   -
     httpMethods:
+      - GET
+    uri: 'api/companies/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: molestiae
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: molestiae
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - PUT
     uri: 'api/companies/{id}'
     metadata:
@@ -274,11 +431,11 @@ endpoints:
         name: id
         description: 'The ID of the company.'
         required: true
-        example: voluptatem
+        example: aliquid
         type: string
         custom: []
     cleanUrlParameters:
-      id: voluptatem
+      id: aliquid
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -312,11 +469,11 @@ endpoints:
         name: id
         description: 'The ID of the company.'
         required: true
-        example: facilis
+        example: consequuntur
         type: string
         custom: []
     cleanUrlParameters:
-      id: facilis
+      id: consequuntur
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

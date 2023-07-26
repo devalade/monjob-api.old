@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "33e9e76e-051e-4c10-abc6-3739ab19b6d7",
+        "_postman_id": "eabb599a-91ee-4c27-8a7c-e9d7f7289760",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -32,7 +32,7 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application\/json"
+                                "value": "multipart\/form-data"
                             },
                             {
                                 "key": "Accept",
@@ -40,8 +40,50 @@
                             }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"flxdxtboet\",\"email\":\"umueller@example.net\",\"password\":\"l+&WZ]1{IWb17=UCy\\\"Z\"}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "first_name",
+                                    "value": "enim",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "last_name",
+                                    "value": "quis",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "gender",
+                                    "value": "m",
+                                    "type": "text",
+                                    "description": "Must be one of <code>m<\/code> or <code>f<\/code>."
+                                },
+                                {
+                                    "key": "birth_date",
+                                    "value": "2023-07-26T13:26:51",
+                                    "type": "text",
+                                    "description": "Must be a valid date."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "andrew.marks@example.net",
+                                    "type": "text",
+                                    "description": "Must be a valid email address."
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "sH!Rjm<",
+                                    "type": "text",
+                                    "description": "Must be at least 8 characters."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +114,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"merlin.beahan@example.com\",\"password\":\"quidem\"}"
+                            "raw": "{\"email\":\"matilde.krajcik@example.org\",\"password\":\"molestiae\"}"
                         },
                         "description": "",
                         "auth": {
@@ -110,6 +152,54 @@
                     "response": []
                 },
                 {
+                    "name": "GET api\/auth\/me",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/me",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/me"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
                     "name": "POST api\/auth\/password\/email",
                     "request": {
                         "url": {
@@ -131,7 +221,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"margie12@example.com\"}"
+                            "raw": "{\"email\":\"lwalsh@example.org\"}"
                         },
                         "description": "",
                         "auth": {
@@ -162,7 +252,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"token\":\"natus\",\"email\":\"rau.chris@example.org\",\"password\":\"i<aK37X)ENLntIw(\\\\)9h\"}"
+                            "raw": "{\"token\":\"hic\",\"email\":\"goldner.kamren@example.com\",\"password\":\"IRHdPJ7>*i6YS~P=Y2p\"}"
                         },
                         "description": "",
                         "auth": {
@@ -170,6 +260,54 @@
                         }
                     },
                     "response": []
+                },
+                {
+                    "name": "GET api\/companies",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/companies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/companies"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "POST api\/companies",
@@ -200,6 +338,62 @@
                     "response": []
                 },
                 {
+                    "name": "GET api\/companies\/{id}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/companies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/companies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "molestiae",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
                     "name": "PUT api\/companies\/{id}",
                     "request": {
                         "url": {
@@ -211,7 +405,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "voluptatem",
+                                    "value": "aliquid",
                                     "description": "The ID of the company."
                                 }
                             ]
@@ -247,7 +441,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "facilis",
+                                    "value": "consequuntur",
                                     "description": "The ID of the company."
                                 }
                             ]

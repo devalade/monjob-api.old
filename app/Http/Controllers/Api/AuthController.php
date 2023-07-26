@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
@@ -19,9 +20,13 @@ class AuthController extends Controller
     */
     public function register(Request $request) {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed',
+            'first_name' => ['required', 'string' ],
+            'last_name' => ['required', 'string' ],
+            'gender' => ['required', 'string', 'in:m,f' ],
+            'birth_date' => ['nullable', 'date'] ,
+            'avatar' => ['nullable', 'image'],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'password' => ['string', 'min:8'],
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
