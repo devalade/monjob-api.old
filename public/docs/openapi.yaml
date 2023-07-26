@@ -1,0 +1,178 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://api.test'
+paths:
+  /api/auth/register:
+    post:
+      summary: ''
+      operationId: postApiAuthRegister
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: flxdxtboet
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: umueller@example.net
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters.'
+                  example: 'l+&WZ]1{IWb17=UCy"Z'
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/auth/login:
+    post:
+      summary: ''
+      operationId: postApiAuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: merlin.beahan@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: quidem
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiAuthLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/auth/password/email:
+    post:
+      summary: ''
+      operationId: postApiAuthPasswordEmail
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: margie12@example.com
+              required:
+                - email
+      security: []
+  /api/auth/password/reset:
+    post:
+      summary: ''
+      operationId: postApiAuthPasswordReset
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: ''
+                  example: natus
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: rau.chris@example.org
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: i<aK37X)ENLntIw(\)9h
+              required:
+                - token
+                - email
+                - password
+      security: []
+  /api/companies:
+    post:
+      summary: ''
+      operationId: postApiCompanies
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/companies/{id}':
+    put:
+      summary: ''
+      operationId: putApiCompaniesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiCompaniesId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the company.'
+        example: voluptatem
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Endpoints
+    description: ''
