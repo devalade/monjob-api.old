@@ -16,7 +16,8 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable, HasUuids, HasRoles;
 
     protected $primaryKey  = 'id';
-    protected $keyType = 'uuid';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.

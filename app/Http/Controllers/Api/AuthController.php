@@ -32,7 +32,7 @@ class AuthController extends Controller
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         if(User::create($validatedData)) {
-            return response()->json(null, 201);
+            return response()->json(['message' => 'Utilisateur a été créé avec succès.'], 201);
         }
 
         return response()->json(null, 404);
